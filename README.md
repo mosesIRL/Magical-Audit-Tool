@@ -9,4 +9,4 @@ This script is for auditing a Windows PC or server running Server 2008 / Windows
 1. Copy the file to the PC or to writeable removable media (USB drive, etc).
 2. Log in as the primary user of the PC (if the auditor requires this information)
 3. Right-click MAT.bat and run as administrator.
-4. The CSV will be created in the same directory as MAT.bat.
+4. The CSV will be created in the same directory as MAT.bat. If this file already exists, it will be overwritten.
