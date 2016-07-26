@@ -42,18 +42,18 @@ echo.
 echo Please wait, collecting data...
 echo.
 echo (This process may take up to 10 minutes on servers)
-del /q "%ComputerName%-Audit.csv" 2>nul
+del /q "%~dp0%ComputerName%-Audit.csv" 2>nul
 FOR /F "tokens=2*" %%A IN ('REG.EXE QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /V "ProductName" 2^>NUL ^| Find "REG_SZ"') Do Set RegValuedata=%%B
-echo User,PC Name,Windows Version >> "%ComputerName%-Audit.csv"
-echo %userdomain%\%username%,%ComputerName%,%RegValuedata%>> "%ComputerName%-Audit.csv"
-echo. >> "%ComputerName%-Audit.csv"
-echo. >> "%ComputerName%-Audit.csv"
-echo SOFTWARE >> "%ComputerName%-Audit.csv"
+echo User,PC Name,Windows Version >> "%~dp0%ComputerName%-Audit.csv"
+echo %userdomain%\%username%,%ComputerName%,%RegValuedata%>> "%~dp0%ComputerName%-Audit.csv"
+echo. >> "%~dp0%ComputerName%-Audit.csv"
+echo. >> "%~dp0%ComputerName%-Audit.csv"
+echo SOFTWARE >> "%~dp0%ComputerName%-Audit.csv"
 setlocal enabledelayedexpansion
 (For /F "tokens=2,3 delims=," %%A in ('"wmic product where "Vendor like '%%Microsoft%%'" get Name,Version /format:csv"') do (
 set "line=%%A,%%B"
 echo !line:~0,-1!
-))>>"%ComputerName%-Audit.csv"
+))>>"%~dp0%ComputerName%-Audit.csv"
 cls
 mode con: cols=100 lines=35
 echo " ___  ___  ___  ______  __     ___  ___  ___    ___  __   ___  ___  __      
