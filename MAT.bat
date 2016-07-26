@@ -1,3 +1,4 @@
+REM https://github.com/mgiljum/MAT
 @echo off
 mode con: cols=100 lines=35
 echo " ___  ___  ___  ______  __     ___  ___  ___    ___  __   ___  ___  __      
@@ -19,6 +20,10 @@ echo ONLY WORKS WITH WINDOWS VISTA / WINDOWS SERVER 2008 AND UP
 echo (WILL NOT WORK ON SERVER 2003 / XP OR BELOW)
 echo.
 echo.
+echo If an audit CSV for this computer (or one with the same name) has already been created,
+echo running the tool again will overwrite it.
+echo.
+echo.
 PAUSE
 cls
 mode con: cols=100 lines=35
@@ -37,6 +42,7 @@ echo.
 echo Please wait, collecting data...
 echo.
 echo (This process may take up to 10 minutes on servers)
+del /q "%ComputerName%-Audit.csv" 2>nul
 FOR /F "tokens=2*" %%A IN ('REG.EXE QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /V "ProductName" 2^>NUL ^| Find "REG_SZ"') Do Set RegValuedata=%%B
 echo User,PC Name,Windows Version >> "%ComputerName%-Audit.csv"
 echo %userdomain%\%username%,%ComputerName%,%RegValuedata%>> "%ComputerName%-Audit.csv"
