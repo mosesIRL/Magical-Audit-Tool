@@ -1,9 +1,10 @@
-# MAT
-"Mat's Magical Audit Tool" - script for basic Windows license audits
+#"Mat's **Magical Audit Tool**" 
+###(or **"MAT"** for short)
+A script for basic Windows license audits.
 
-This script is for auditing a Windows PC or server running Server 2008 / Windows Vista and up. It pull basic information using WMI, as and lists Microsoft software installed into a CSV file.
+This script is for auditing a Windows PC or server running Server 2008 / Windows Vista and up. It pulls basic information using WMI, as and lists Microsoft software installed into a CSV file.
 
-Usage:
+**Usage**:
 
 1. Copy the file to the PC or to writeable removable media (USB drive, etc).
 2. Log in as the primary user of the PC (if the auditor requires this information)
