@@ -1,4 +1,4 @@
-#"Mat's **Magical Audit Tool**" 
+#**Magical Audit Tool*" 
 ###(or **"MAT"** for short)
 A script for basic Windows license audits.
 
