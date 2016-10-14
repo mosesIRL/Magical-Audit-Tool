@@ -4,6 +4,13 @@ A script for basic Windows license audits.
 
 This script is for auditing a Windows PC or server running Server 2008 / Windows Vista and up. It pulls basic information using WMI, as and lists Microsoft software installed into a CSV file.
 
+**What info is gathered?**:
+
+Active User
+PC Name
+Windows Version
+List of all "Windows" software & version number
+
 **Usage**:
 
 1. Copy the file to the PC or to writeable removable media (USB drive, etc).
