@@ -6,10 +6,10 @@ This script is for auditing a Windows PC or server running Server 2008 / Windows
 
 **What info is gathered?**:
 
-Active User
-PC Name
-Windows Version
-List of all "Windows" software & version number
+- Active User
+- PC Name
+- Windows Version
+- List of all "Windows" software & version number
 
 **Usage**:
 
