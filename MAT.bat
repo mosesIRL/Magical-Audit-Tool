@@ -19,7 +19,8 @@ echo.
 echo Please wait, collecting data...
 echo.
 echo (This process may take up to 10 minutes on servers)
-REM Create results directory and delete identical results
+
+REM CREATE RESULTS DIR / DEL EXISTING
 if not exist "%~dp0results" (
 	mkdir "%~dp0results"
 	)
@@ -27,19 +28,24 @@ if exist "%~dp0results\%ComputerName%-Audit.csv" (
 	del /q "%~dp0results\%ComputerName%-Audit.csv"
 	)
 
-REM Get Windows version
+REM WINDOWS VERSION
+
 FOR /F "tokens=2*" %%A IN ('REG.EXE QUERY "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion" /V "ProductName" 2^>NUL ^| Find "REG_SZ"') Do Set RegValuedata=%%B
 
-REM Echo out User,PC Name,Windows Version to results
+REM SECTION1 COLUMNS
 echo User,PC Name,Windows Version >> "%~dp0results\%ComputerName%-Audit.csv"
+
+REM SECTION1 DATA
 echo %userdomain%\%username%,%ComputerName%,%RegValuedata%>> "%~dp0results\%ComputerName%-Audit.csv"
 
-REM Add some blank lines
+REM SECTION SEPERATOR
 echo. >> "%~dp0results\%ComputerName%-Audit.csv"
 echo. >> "%~dp0results\%ComputerName%-Audit.csv"
 
-REM Grab software and echo to results
+REM SECTION2 COLUMNS
 echo SOFTWARE >> "%~dp0results\%ComputerName%-Audit.csv"
+
+REM SECTION2 DATA
 setlocal enabledelayedexpansion
 (For /F "tokens=2,3 delims=," %%A in ('"wmic product where "Vendor like '%%Microsoft%%'" get Name,Version /format:csv"') do (
 set "line=%%A,%%B"
