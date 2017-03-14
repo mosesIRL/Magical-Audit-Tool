@@ -1,8 +1,9 @@
 <h1>Magical Audit Tool</h1>
 <h3>(or <b>"MAT"</b> for short)</h3>
+
 A script for basic Windows license audits.
 
-This script is for auditing a Windows PC or server running Server 2008 / Windows Vista and up. It pulls basic information using WMI, as and lists Microsoft software installed into a CSV file.
+This script is for Windows PCs or server running Windows Vista / Server 2008 and up. It pulls basic information using WMI, as and lists Microsoft software installed into a CSV file.
 
 **What info is gathered?**:
 
