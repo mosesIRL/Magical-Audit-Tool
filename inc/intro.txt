@@ -1,0 +1,11 @@
+    This tool grabs the user's name, PC name, Windows version, and a list of 
+    any Microsoft software (with version numbers) and plops it in a .csv file.
+    
+    ONLY WORKS WITH WINDOWS VISTA / WINDOWS SERVER 2008 AND UP 
+    
+    If an audit CSV for this computer (or one with the same name) has already 
+    been created, running the tool again will overwrite it. You can find all
+    the audit CSV files in the "results" folder.
+
+
+    Press any key to start the audit...
